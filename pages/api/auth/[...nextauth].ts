@@ -42,4 +42,12 @@ export default NextAuth({
     deleteDoc,
     runTransaction,
   }),
+  callbacks: {
+    redirect: async ({ url, baseUrl }) => {
+      return Promise.resolve(baseUrl)
+    },
+  },
+  pages: {
+    signIn: '/auth/signin',
+  },
 })
