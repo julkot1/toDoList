@@ -22,7 +22,7 @@ const ProviderButton = styled.button`
   background-color: transparent;
   border-radius: 6px;
   cursor: pointer;
-  border: 1px solid #70cde5;
+  border: 1px solid #231651;
   position: relative;
   z-index: 2;
   ::after {
@@ -32,7 +32,7 @@ const ProviderButton = styled.button`
     height: 100%;
     top: 0;
     left: 0;
-    background-color: #70cde5;
+    background-color: #231651;
     position: absolute;
     transition: width ease-in-out 200ms;
   }

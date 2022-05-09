@@ -5,6 +5,7 @@ import LogIn from './auth/login/LogIn'
 import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import LoginButton from './auth/login/LoginButton'
+import Navbar from './nav/Navbar'
 
 type Props = {
   children: JSX.Element
@@ -38,7 +39,12 @@ const Layout: React.FC<Props> = ({ children }) => {
     return <Loading />
   }
   if (session) {
-    return <>{children}</>
+    return (
+      <>
+        <Navbar />
+        {children}
+      </>
+    )
   } else if (router.pathname === '/auth/signin') {
     return <>{children}</>
   }
