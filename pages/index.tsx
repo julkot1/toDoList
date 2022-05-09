@@ -1,13 +1,17 @@
+import MyProjects from 'components/myprojects/MyProjects'
 import type { NextPage } from 'next'
-import { useSession, signOut } from 'next-auth/react'
 import styled from 'styled-components'
+
 const StyledWrapper = styled.main`
-  height: 10000px;
+  width: 100%;
+  padding: 5%;
 `
 const Home: NextPage = () => {
-  const { data: session } = useSession()
-
-  return <StyledWrapper>sd</StyledWrapper>
+  return (
+    <StyledWrapper>
+      <MyProjects />
+    </StyledWrapper>
+  )
 }
 
 export default Home

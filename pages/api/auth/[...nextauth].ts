@@ -1,4 +1,4 @@
-import NextAuth from 'next-auth'
+import NextAuth, { Awaitable, Session, User } from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import FacebookProvider from 'next-auth/providers/facebook'
 import { FirebaseAdapter } from '@next-auth/firebase-adapter'
@@ -16,6 +16,7 @@ import {
   addDoc,
   runTransaction,
 } from 'firebase/firestore'
+import { JWT } from 'next-auth/jwt'
 
 export default NextAuth({
   providers: [
@@ -45,6 +46,10 @@ export default NextAuth({
   callbacks: {
     redirect: async ({ url, baseUrl }) => {
       return Promise.resolve(baseUrl)
+    },
+    session: async (params: { session: Session; user: User; token: JWT }) => {
+      params.session.id = params.user.id
+      return Promise.resolve(params.session)
     },
   },
   pages: {

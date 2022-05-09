@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import '@next-auth/firebase-adapter'
 import { getFirestore } from '@firebase/firestore'
+import { collection } from 'firebase/firestore'
 
 export const firebaseConfig = {
   apiKey: 'AIzaSyDF96-cefquITOwBFgE6GumFrqbqeim9N0',
@@ -18,3 +19,4 @@ export const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig)
 export const store = getFirestore()
+export const projectsCollection = collection(store, 'projects')
